@@ -15,40 +15,48 @@ def RandomDaySelector(Sundays):#This is to select a random day of the week
     indexNumber = RandomListPick(OperatingDays) #randomly selects a index number from the lenght of the list
     return OperatingDays[indexNumber] #returns the value in the list that is randomly selected
 
-def RandomShiftSelector(Weekday):
-    Monday = ['6:00 - 9:30', '9:30 - 1:00', '1:00 - 4:30', '4:30 - 7:30']
+def RandomShiftSelector(Weekday):  #This is a function to randomly select the shift for the day selected
+    Monday = ['6:00 - 9:30', '9:30 - 1:00', '1:00 - 4:30', '4:30 - 7:30']  #Lists of all the shifts for each day
     Tuesday = ['6:00 - 9:30', '9:30 - 1:00', '1:00 - 4:30', '4:30 - 7:30']
     Wednesday = ['6:00 - 9:30', '9:30 - 1:00', '1:00 - 4:30', '4:30 - 7:30']
     Thursday = ['6:00 - 9:30', '9:30 - 1:00', '1:00 - 4:30', '4:30 - 7:30']
     Friday = ['6:00 - 9:30', '9:30 - 1:00', '1:00 - 4:30', '4:30 - 7:30']
     Saturday = ['6:45 - 10:00', '10:00 - 1:30']
     Sunday = ['closed']
-    print('Are there Sundays? Type 0 or 1')
-    SundaysValid = input()
-    Day = RandomDaySelector(SundaysValid)
-    if Day == 'Monday':
+    if Weekday == 'Monday':  #selects a weekday variable from the return string from RandomDaySelector
         indexNumber = RandomListPick(Monday)
-    elif Day == 'Tuesday':
+        return Monday [indexNumber], "Monday"
+    elif Weekday == 'Tuesday':
         indexNumber = RandomListPick(Tuesday)
-    elif Day == 'Wednesday':
+        return Tuesday [indexNumber], "Tuesday"
+    elif Weekday == 'Wednesday':
         indexNumber = RandomListPick(Wednesday)
-    elif Day == 'Thursday':
+        return Wednesday [indexNumber], "Wednesday"
+    elif Weekday == 'Thursday':
         indexNumber = RandomListPick(Thursday)
-    elif Day == 'Friday':
+        return Thursday [indexNumber], "Thurday"
+    elif Weekday == 'Friday':
         indexNumber = RandomListPick(Friday)
-    elif Day == 'Saturday':
+        return Friday [indexNumber], "Friday"
+    elif Weekday == 'Saturday':
         indexNumber = RandomListPick(Saturday)
-    elif Day == 'Sunday':
+        return Saturday [indexNumber], "Saturday"
+    elif Weekday == 'Sunday':
         indexNumber = RandomListPick(Sunday)
-    else:
+        return Sunday [indexNumber], "Sunday"
+    else:  #I see no way this could be used in the actuall program but it exits the program if there is a value not stored, more for redundency
         print('Not a valid day')
         sys.exit()
 
 
+def RandomPersonSelector(dayAndShift):  #This is to take the day picked and shift picked and then choose a person that is working
+    print('How many people are working on ' + dayAndShift + ' ?')
+    numberOfPeople = input()
+    if numberOfPeople == 2:
 
 
 
-
+RandomPersonSelector(RandomShiftSelector)
 
 
 
