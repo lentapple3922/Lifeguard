@@ -50,13 +50,12 @@ def RandomShiftSelector(Weekday):  #This is a function to randomly select the sh
 
 
 def RandomPersonSelector(dayAndShift):  #This is to take the day picked and shift picked and then choose a person that is working
-    print('How many people are working on ' + dayAndShift + ' ?')
-    numberOfPeople = input()
-    if numberOfPeople == 2:
+    print('How many people are working on ' + str(dayAndShift) + ' ?')
+    employees = [str(input())]  #Need to make a plan on how to convert user input into a list not just one string
+    return employees
 
 
-
-RandomPersonSelector(RandomShiftSelector)
+print(RandomPersonSelector(RandomShiftSelector(RandomDaySelector(1))))
 
 
 
