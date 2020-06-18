@@ -1,6 +1,6 @@
 import random, sys
 def RandomListPick(List):   #This is a simple fuction to take the length of a list and return it
-    return random.randint(0, (len(List) - 1))
+    return random.randint(0, (len(List) - 1))  #this returns a random number from the length of the list
 
 #def indexNumber #make a function to replace the take index number to return its value from the list repetitive part in the functions.
 
@@ -25,39 +25,49 @@ def RandomShiftSelector(Weekday):  #This is a function to randomly select the sh
     Sunday = ['closed']
     if Weekday == 'Monday':  #selects a weekday variable from the return string from RandomDaySelector
         indexNumber = RandomListPick(Monday)
-        return Monday [indexNumber], "Monday"
+        return 'Monday', Monday[indexNumber]
     elif Weekday == 'Tuesday':
         indexNumber = RandomListPick(Tuesday)
-        return Tuesday [indexNumber], "Tuesday"
+        return 'Tuesday', Tuesday[indexNumber]
     elif Weekday == 'Wednesday':
         indexNumber = RandomListPick(Wednesday)
-        return Wednesday [indexNumber], "Wednesday"
+        return 'Wednesday', Wednesday[indexNumber]
     elif Weekday == 'Thursday':
         indexNumber = RandomListPick(Thursday)
-        return Thursday [indexNumber], "Thurday"
+        return 'Thursday', Thursday[indexNumber]
     elif Weekday == 'Friday':
         indexNumber = RandomListPick(Friday)
-        return Friday [indexNumber], "Friday"
+        return 'Friday', Friday[indexNumber]
     elif Weekday == 'Saturday':
         indexNumber = RandomListPick(Saturday)
-        return Saturday [indexNumber], "Saturday"
+        return 'Saturday', Saturday[indexNumber]
     elif Weekday == 'Sunday':
         indexNumber = RandomListPick(Sunday)
-        return Sunday [indexNumber], "Sunday"
+        return 'Sunday', Sunday[indexNumber]
     else:  #I see no way this could be used in the actuall program but it exits the program if there is a value not stored, more for redundency
         print('Not a valid day')
         sys.exit()
 
 
 def RandomPersonSelector(dayAndShift):  #This is to take the day picked and shift picked and then choose a person that is working
-    print('How many people are working on ' + str(dayAndShift) + ' ?')
-    employees = [str(input())]  #Need to make a plan on how to convert user input into a list not just one string
-    return employees
+    print('How many people are working on' + str(dayAndShift) +'?' )
+    numberOfEmployees = int(input())
+    #print('Who is working on ' + str(dayAndShift) + ' ? Type one person at a time')
+    employees = []
+    #print('Any more?')
+    #answer = str(input())
+    l = 0
+    while l < numberOfEmployees:
+        print('Type there name')
+        employee2 = str(input())
+        employees.append(employee2)
+        l = l + 1
+    luckyPerson = RandomListPick(employees)
+    return employees[luckyPerson]
+
+
 
 
 print(RandomPersonSelector(RandomShiftSelector(RandomDaySelector(1))))
-
-
-
 
 
